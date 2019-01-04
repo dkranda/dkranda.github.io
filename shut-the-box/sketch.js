@@ -10,13 +10,19 @@ var dice = [];            // array of dice objects for current roll
 var availablePlays = [];  // array of plays available based on the current roll
                           // and state of the game
 var numTiles = 12;        // number of tiles in this game
+var onMobile = false;     // when on mobile, disable some visualization features
 
 // initial setup
 function setup() {
   wt = Math.min(windowWidth,windowHeight);
   ht = wt;
+  onMobile] = (deviceOrientation !== undefined);
   createCanvas(wt, ht);
   game = new Game(numTiles, 2, 2)
+  if (onMobile) {
+    noLoop()
+    draw();
+  }
 }
 
 // update canvas size appropriately
@@ -274,6 +280,9 @@ function restartGame()
   dice = [];
   availablePlays = [];
   game = new Game(numTiles,2,2);
+  if (onMobile) {
+      draw();
+  }
 }
 
 // plays the given move
@@ -288,6 +297,9 @@ function playMove() {
   if (movePlayed) {
     status = 0;
   }
+  if (onMobile) {
+    draw();
+  }
 }
 
 // rolls dice
@@ -296,6 +308,9 @@ function rollDice() {
   diceRoll = game.getDiceRoll();
   initiateDice();
   availablePlays = game.getAvailablePlays(diceRoll);
+  if (onMobile) {
+    draw();
+  }
 }
 
 // initiates dice objects for drawing later
