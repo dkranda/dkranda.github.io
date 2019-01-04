@@ -16,7 +16,7 @@ var onMobile = false;     // when on mobile, disable some visualization features
 function setup() {
   wt = Math.min(windowWidth,windowHeight);
   ht = wt;
-  onMobile] = (deviceOrientation !== undefined);
+  onMobile = (deviceOrientation !== undefined);
   createCanvas(wt, ht);
   game = new Game(numTiles, 2, 2)
   if (onMobile) {
