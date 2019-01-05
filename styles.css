@@ -1,0 +1,90 @@
+body {
+  background-color: #C0C0C0;
+  font-family: Calibri, sans-serif;
+  color: #C0C0C0;
+}
+
+#email {
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
+}
+
+.bottom {
+  position: fixed;
+  font-size: 10pt;
+  background-color: #000080;
+  height: 50px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  line-height: 50px;
+}
+
+.bottom:hover {
+  background-color: #0000CD;
+}
+
+.top {
+  background-color: #000080;
+  font-size: 50pt;
+  position: fixed;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  align-content: center;
+  text-align: center;
+}
+
+.top:hover{
+  background-color: #0000CD;
+}
+
+.project-list {
+  position: absolute;
+  top: 105px;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-item {
+  background-color: #000080;
+  width: 300px;
+  height: 100px;
+  vertical-align: middle;
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
+}
+
+.project-title {
+  font-size: 20pt;
+}
+
+.project-details {
+  font-size: 10pt;
+  padding: 5px;
+  text-align: justify;
+}
+
+a {
+  text-decoration: none;
+  color: #C0C0C0;
+}
+
+
+a:visited {
+  color: #C0C0C0;
+}
+
+.project-item:hover {
+  background-color: #0000CD;
+  cursor: pointer;
+}
