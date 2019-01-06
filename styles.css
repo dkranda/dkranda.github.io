@@ -12,14 +12,14 @@ body {
 
 .bottom {
   position: fixed;
-  font-size: 1em;
+  font-size: 3vh;
   background-color: #000080;
   height: 10%;
   width: 100%;
   bottom: 0;
   left: 0;
   text-align: center;
-  line-height: 5;
+  line-height: 3.5;
 }
 
 .bottom:hover {
@@ -28,7 +28,7 @@ body {
 
 .top {
   background-color: #000080;
-  font-size: 5em;
+  font-size: 9vh;
   position: fixed;
   opacity: 1;
   top: 0;
@@ -37,6 +37,9 @@ body {
   width: 100%;
   align-content: center;
   text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 2;
 }
 
 .top:hover{
@@ -56,11 +59,11 @@ body {
 
 .project-item {
   background-color: #000080;
-  width: 30%;
+  width: 40%;
   vertical-align: middle;
   text-align: center;
   padding: 30px;
-  margin-left: 30%;
+  margin-left: 25%;
   margin-bottom: 10px;
 }
 
