@@ -20,7 +20,7 @@ function setup()
 	ht = wt;
 	zippyX = wt / 3;
 	zippyY = 5 * ht / 8;
-	collisionDist = wt / 60;
+	collisionDist = wt / 20;
 	createCanvas(wt, ht);
 }
 
@@ -107,7 +107,12 @@ class Treat
 		{
 			return;
 		}
-		else if (Math.abs(this.x - zippyX) < collisionDist && Math.abs(this.y - zippyY) < collisionDist || this.isCloseToAnotherTreat())
+		else if ((Math.abs(this.x - zippyX) < (3 * collisionDist) && Math.abs(this.y - zippyY) < (3 * collisionDist)) || this.isCloseToAnotherTreat())
+		{
+			this.isLanded = true;
+			return;
+		}
+		else if (Math.abs(this.x - zippyX) > (2 * wt) || Math.abs(this.y - zippyY) > (2 * ht))
 		{
 			this.isLanded = true;
 			return;
