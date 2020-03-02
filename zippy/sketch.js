@@ -133,7 +133,7 @@ class Treat
 			{
 				continue;
 			}
-			if (Math.abs((this.x - treats[i].x) * (this.x - treats[i].x) + (this.y - treats[i].y) * (this.y - treats[i].xy)) < (collisionDist * collisionDist))
+			if (Math.abs((this.x - treats[i].x) * (this.x - treats[i].x) + (this.y - treats[i].y) * (this.y - treats[i].y)) < (collisionDist * collisionDist))
 			{
 				return true;
 			}
