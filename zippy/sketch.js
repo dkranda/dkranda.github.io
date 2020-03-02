@@ -20,7 +20,7 @@ function setup()
 	ht = wt;
 	zippyX = wt / 3;
 	zippyY = 5 * ht / 8;
-	collisionDist = wt / 40;
+	collisionDist = wt / 60;
 	createCanvas(wt, ht);
 }
 
