@@ -4,6 +4,7 @@ var zippyX, zippyY;
 var treatCount = 0;
 var collisionDist;
 var treats = [];
+var started = false;
 
 function preload()
 {
@@ -24,6 +25,19 @@ function draw()
 {
 	drawBackground();
 	updateTreats();
+	drawSplash();
+}
+
+function drawSplash()
+{
+	if (!started)
+	{
+		textSize(0.05 * wt);
+		fill(color(148,0,211));
+		text("If Zippy catches a treat,\nI'll give out 100 gift subs.", .3 * wt , .4 * ht);
+		textSize(0.04 * wt);
+		text("twitch.tv/slade",0.45 * wt, 0.5 * ht);
+	}
 }
 
 function drawBackground()
@@ -107,6 +121,7 @@ function updateTreats()
 
 function mousePressed()
 {
+	started = true;
 	treats.push(new Treat(mouseX, mouseY));
 }
 
