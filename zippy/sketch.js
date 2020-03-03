@@ -14,8 +14,8 @@ function setup()
 {
 	wt = Math.min(windowWidth, windowHeight);
 	ht = wt;
-	zippyX = wt / 3;
-	zippyY = 5 * ht / 8;
+	zippyX = 0.29 * wt;
+	zippyY = 0.58 * wt;
 	collisionDist = wt / 30;
 	createCanvas(wt, ht);
 }
@@ -50,8 +50,33 @@ function drawBackground()
 
 function drawZippy()
 {
+	var zippyXconst = wt / 2.75;
+	var zippyYconst = 5 * wt / 8;
+	
+	//legs
+	fill(255, 255, 255);
+	rect(zippyXconst - wt / 12, zippyYconst + wt / 40, wt / 100, wt / 100 + wt / 30);
+	rect(zippyXconst - wt / 20, zippyYconst + wt / 40, wt / 100, wt / 100 + wt / 30);
+	rect(zippyXconst + wt / 25, zippyYconst + wt / 40, wt / 100, wt / 100 + wt / 30);
+	rect(zippyXconst + wt / 15, zippyYconst + wt / 40, wt / 100, wt / 100 + wt / 30);
+	
+	//tail
+	fill(255, 255, 255);
+	quad(zippyXconst + 0.08 * wt, zippyYconst,
+	zippyXconst + 0.1 * wt, zippyYconst + 0.001 * wt, 
+	zippyXconst + 0.12 * wt, zippyYconst - 0.04 * ht, 
+	zippyXconst + 0.1 * wt, zippyYconst - 0.05 * ht);
+	
+	// body
+	fill(255, 255, 255);
+	ellipse(zippyXconst, zippyYconst, wt / 5, wt / 12);
+	fill(color(210, 180, 140));
+	ellipse(zippyXconst, zippyYconst - wt / 40, wt / 15, wt / 30);
+	
+	//head
 	imageMode(CENTER);
 	image(zippy, zippyX, zippyY, wt / 10, ht / 10);
+	zippyY = zippyY + Math.sin(frameCount / 20) * (ht / 1000);
 }
 
 function drawScore()
@@ -61,7 +86,14 @@ function drawScore()
 	strokeWeight(wt / 250);
 	stroke(color(0, 0, 0));
 	text('Score: 0', wt / 15, 14 * ht / 15);
-	strokeWeight(1)
+	strokeWeight(1);
+	
+	textSize(wt / 4);
+	fill(color(255, 255, 255));
+	strokeWeight(wt / 250);
+	stroke(color(0, 0, 0));
+	text('DOG', 0.4 * wt, 0.25 * ht);
+	strokeWeight(1);
 }
 
 function updateTreats()
@@ -69,14 +101,8 @@ function updateTreats()
 	for (var i = 0; i < treats.length; i++)
 	{
 		treats[i].updateTreat();
-		drawTreat(treats[i]);
+		treats[i].drawTreat();
 	}
-}
-
-function drawTreat(treat)
-{
-	fill(color(150, 75, 0));
-	circle(treat.x, treat.y, wt / 30);
 }
 
 function mouseClicked()
@@ -96,6 +122,12 @@ class Treat
 		this.xDistToZippy = Math.abs(this.x - zippyX);
 		this.treatNum = treatCount++;
 	}
+	
+	drawTreat()
+	{
+		fill(color(150, 75, 0));
+		circle(this.x, this.y, wt / 30);
+	}
 
 	updateTreat()
 	{
@@ -103,7 +135,7 @@ class Treat
 		{
 			return;
 		}
-		else if ((Math.abs((this.x - zippyX) * (this.x - zippyX) + (this.y - zippyY) * (this.y - zippyY)) < (collisionDist * collisionDist)) || this.isCloseToAnotherTreat())
+		else if ((this.distance(this.x, this.y, zippyX, zippyY) < (collisionDist * collisionDist)) || this.isCloseToAnotherTreat())
 		{
 			this.isLanded = true;
 			return;
@@ -129,11 +161,16 @@ class Treat
 			{
 				continue;
 			}
-			if (Math.abs((this.x - treats[i].x) * (this.x - treats[i].x) + (this.y - treats[i].y) * (this.y - treats[i].y)) < (collisionDist * collisionDist))
+			if (this.distance(this.x,this.y, treats[i].x, treats[i].y) < (collisionDist * collisionDist))
 			{
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	distance(x1,y1,x2,y2)
+	{
+		return Math.abs((x1 - x2)*(x1 - x2) + (y1 - y2) * (y1 - y2));
 	}
 }
