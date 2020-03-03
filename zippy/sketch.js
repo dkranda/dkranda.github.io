@@ -1,7 +1,3 @@
-//----------------------------------------------------
-// Copyright 2020 Epic Systems Corporation
-//----------------------------------------------------
-
 // JavaScript source code
 var wt, ht, zippy;
 var zippyX, zippyY;
