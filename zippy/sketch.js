@@ -32,11 +32,15 @@ function drawSplash()
 {
 	if (!started)
 	{
+		fill(color(170,170,170,220));
+		rect(0,0,wt,wt);
+		fill(color(255,255,255));
+		rect(0.22 * wt, 0.3 * wt, 0.6 * wt, 0.25 * wt);
 		textSize(0.05 * wt);
 		fill(color(148,0,211));
-		text("\"If Zippy catches a treat,\nI'll give out 100 gift subs.\"", .3 * wt , .4 * ht);
+		text("\"If Zippy catches a treat,\nI'll give out 100 gift subs.\"", .24 * wt , .4 * ht);
 		textSize(0.04 * wt);
-		text("twitch.tv/slade",0.45 * wt, 0.5 * ht);
+		text("twitch.tv/slade",0.39 * wt, 0.52 * ht);
 	}
 }
 
@@ -121,8 +125,14 @@ function updateTreats()
 
 function mousePressed()
 {
-	started = true;
-	treats.push(new Treat(mouseX, mouseY));
+	if (!started)
+	{
+		started = true;
+	}
+	else
+	{
+		treats.push(new Treat(mouseX, mouseY));
+	}
 }
 
 class Treat
