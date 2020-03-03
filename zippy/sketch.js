@@ -34,7 +34,7 @@ function drawSplash()
 	{
 		textSize(0.05 * wt);
 		fill(color(148,0,211));
-		text("If Zippy catches a treat,\nI'll give out 100 gift subs.", .3 * wt , .4 * ht);
+		text("\"If Zippy catches a treat,\nI'll give out 100 gift subs.\"", .3 * wt , .4 * ht);
 		textSize(0.04 * wt);
 		text("twitch.tv/slade",0.45 * wt, 0.5 * ht);
 	}
