@@ -110,6 +110,11 @@ function mouseClicked()
 	treats.push(new Treat(mouseX, mouseY));
 }
 
+function touchStarted()
+{
+	treats.push(new Treat(mouseX, mouseY));
+}
+
 class Treat
 {
 	constructor(initialX, initialY)
