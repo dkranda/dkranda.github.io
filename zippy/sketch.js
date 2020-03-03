@@ -105,12 +105,7 @@ function updateTreats()
 	}
 }
 
-function mouseClicked()
-{
-	treats.push(new Treat(mouseX, mouseY));
-}
-
-function touchStarted()
+function mousePressed()
 {
 	treats.push(new Treat(mouseX, mouseY));
 }
