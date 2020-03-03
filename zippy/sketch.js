@@ -160,18 +160,21 @@ class Treat
 		{
 			return;
 		}
-		else if ((this.distance(this.x, this.y, zippyX, zippyY) < (collisionDist * collisionDist)) || this.isCloseToAnotherTreat())
+		else if (((this.distance(this.x, this.y, zippyX, zippyY) < (collisionDist * collisionDist)) || this.isCloseToAnotherTreat()) && (this.yVelocity > 0))
 		{
+			// hit zippy or another treat
 			this.isLanded = true;
 			return;
 		}
 		else if (Math.abs(this.x - zippyX) > (2 * wt) || Math.abs(this.y - zippyY) > (2 * ht))
 		{
+			// is just in another dimension at this point
 			this.isLanded = true;
 			return;
 		}
 		else
 		{
+			// accelerate!
 			this.x = this.x - (this.xDirToZippy * (this.xDistToZippy / 25 + wt / 250));
 			this.yVelocity = this.yVelocity + (wt * 0.005);
 			this.y = this.y + this.yVelocity;
