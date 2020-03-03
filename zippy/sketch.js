@@ -161,6 +161,10 @@ class Treat
 			{
 				continue;
 			}
+			if (!treats[i].isLanded)
+			{
+				continue;
+			}
 			if (this.distance(this.x,this.y, treats[i].x, treats[i].y) < (collisionDist * collisionDist))
 			{
 				return true;
