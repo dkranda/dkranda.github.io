@@ -116,7 +116,7 @@ class Treat
 	{
 		this.x = initialX;
 		this.y = initialY;
-		this.yVelocity = -50;
+		this.yVelocity = -1 * (wt * 0.05);
 		this.isLanded = false;
 		this.xDirToZippy = Math.sign(this.x - zippyX);
 		this.xDistToZippy = Math.abs(this.x - zippyX);
@@ -148,7 +148,7 @@ class Treat
 		else
 		{
 			this.x = this.x - (this.xDirToZippy * (this.xDistToZippy / 25 + wt / 250));
-			this.yVelocity = this.yVelocity + 5;
+			this.yVelocity = this.yVelocity + (wt * 0.005);
 			this.y = this.y + this.yVelocity;
 		}
 	}
