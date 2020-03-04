@@ -81,7 +81,7 @@ function mouseMoved()
 	curMouseX = mouseX;
 	curMouseY = mouseY;
 	
-	if (distance(mouseX, mouseY, chicken.x, chicken.y) < 0.12 * wt)
+	if (distance(mouseX, mouseY, chicken.x, chicken.y) < 0.1 * wt)
 	{
 		chicken.hit(curMouseX - prevMouseX, curMouseY - prevMouseY);
 	}
