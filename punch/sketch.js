@@ -6,7 +6,7 @@ var score = 0;
 
 function preload()
 {
-	img = loadImage('https://images-na.ssl-images-amazon.com/images/I/31SeaDjNnJL.jpg');
+	img = loadImage('../assets/chicken.png');
 }
 
 function setup()
