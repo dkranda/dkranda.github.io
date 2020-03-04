@@ -80,11 +80,79 @@ function mouseMoved()
 	
 	curMouseX = mouseX;
 	curMouseY = mouseY;
+
+	var xDir = curMouseX - prevMouseX;
+	var yDir = curMouseY - prevMouseY;
+
+	var coordinatesToCheck = getCoordinatesToCheck(curMouseX, curMouseY, prevMouseX, prevMouseY);
 	
-	if (distance(mouseX, mouseY, chicken.x, chicken.y) < 0.1 * wt)
+	for (var i = 0; i < coordinatesToCheck.length; i++)
 	{
-		chicken.hit(curMouseX - prevMouseX, curMouseY - prevMouseY);
+		if (distance(coordinatesToCheck[i].x, coordinatesToCheck[i].y, chicken.x, chicken.y) < 0.1 * wt)
+		{
+			chicken.hit(xDir, yDir);
+			return;
+		}
 	}
+}
+
+function getCoordinatesToCheck(x1, y1, x2, y2)
+{
+	var coords = [];
+	if (x1 == x2)
+	{
+		if (y1 < y2)
+		{
+			for (var i = y1; i <= y2; i++)
+			{
+				coords.push({x: x1, y:i});
+			}
+		}
+		else
+		{
+			for (var i = y2; i <= y1; i++)
+			{
+				coords.push({x: x1, y:i});
+			}
+		}
+	}
+	else if (y1 == y2)
+	{
+		if (x1 < x2)
+		{
+			for (var i = x1; i <= x2; i++)
+			{
+				coords.push({x: i, y:y1});
+			}
+		}
+		else
+		{
+			for (var i = x2; i <= x1; i++)
+			{
+				coords.push({x: i, y:y1});
+			}
+		}
+	}
+	else
+	{
+		var slope = (y2 - y1)/(x2 - x1);
+		var b = (y1 - slope * x1);
+		if (x1 < x2)
+		{
+			for (var i = x1; i <= x2; i++)
+			{
+				coords.push({x: i, y: (slope * i + b)});
+			}
+		}
+		else
+		{
+			for (var i = x2; i <= x1; i++)
+			{
+				coords.push({x: i, y: (slope * i + b)});
+			}
+		}
+	}
+	return coords;
 }
 
 function mousePressed()
