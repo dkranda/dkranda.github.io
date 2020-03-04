@@ -131,6 +131,7 @@ class Chicken
 		if (this.x > wt)
 		{
 			this.x = wt;
+			this.xDir = -this.xDir;
 		}
 		
 		if (this.y < 0)
@@ -159,6 +160,7 @@ class Chicken
 	
 	draw()
 	{
+		imageMode(CENTER);
 		image(img, this.x, this.y, 0.12 * wt, 0.12 * wt);
 	}	
 }
