@@ -159,6 +159,7 @@ class Chicken
 	
 	draw()
 	{
+		imageMode(CENTER);
 		image(img, this.x, this.y, 0.12 * wt, 0.12 * wt);
 	}	
 }
