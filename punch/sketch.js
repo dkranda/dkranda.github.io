@@ -90,10 +90,7 @@ function mouseMoved()
 
 function mousePressed()
 {
-	if (chicken.isHit && chicken.isDone)
-	{
-		chicken = new Chicken(0.75 * wt, 0.5 * wt, 0, 0);
-	}
+	chicken = new Chicken(0.75 * wt, 0.5 * wt, 0, 0);
 }
 
 function distance(x1, y1, x2, y2)
