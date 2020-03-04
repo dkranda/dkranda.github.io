@@ -123,17 +123,28 @@ class Chicken
 	
 	update()
 	{
-		if (this.x < 0 || this.x > wt)
+		if (this.x < 0)
 		{
+			this.x = 0;
 			this.xDir = -this.xDir;
 		}
-		
-		if (this.y < 0 || this.y > ht)
+		if (this.x > wt)
 		{
+			this.x = wt;
+		}
+		
+		if (this.y < 0)
+		{
+			this.y = 0;
 			this.yDir = -this.yDir;
 		}
 		
-		
+		if (this.y > ht)
+		{
+			this.y = ht;
+			this.yDir = -this.yDir;
+		}
+				
 		this.xDir = this.xDir - 0.2 * Math.sign(this.xDir);
 		if (Math.abs(this.xDir) < 0.03) { this.xDir = 0; }
 		this.yDir = this.yDir - 0.2 * Math.sign(this.yDir);
