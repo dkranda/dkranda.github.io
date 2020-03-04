@@ -2,7 +2,6 @@ var curMouseX, curMouseY, prevMouseX, prevMouseY;
 var wt,ht;
 var chicken;
 var img;
-var score = 0;
 
 function preload()
 {
@@ -82,7 +81,7 @@ function mouseMoved()
 	curMouseX = mouseX;
 	curMouseY = mouseY;
 	
-	if (distance(mouseX, mouseY, chicken.x, chicken.y) < 0.1 * wt)
+	if (distance(mouseX, mouseY, chicken.x, chicken.y) < 0.12 * wt)
 	{
 		chicken.hit(curMouseX - prevMouseX, curMouseY - prevMouseY);
 	}
@@ -135,9 +134,9 @@ class Chicken
 		}
 		
 		
-		this.xDir = this.xDir - 0.1 * Math.sign(this.xDir);
+		this.xDir = this.xDir - 0.2 * Math.sign(this.xDir);
 		if (Math.abs(this.xDir) < 0.03) { this.xDir = 0; }
-		this.yDir = this.yDir - 0.1 * Math.sign(this.yDir);
+		this.yDir = this.yDir - 0.2 * Math.sign(this.yDir);
 		if (Math.abs(this.yDir) < 0.03) { this.yDir = 0; }
 
 		this.x = this.x + this.xDir;
@@ -149,6 +148,6 @@ class Chicken
 	
 	draw()
 	{
-		image(img, this.x, this.y, 0.1 * wt, 0.1 * wt);
+		image(img, this.x, this.y, 0.12 * wt, 0.12 * wt);
 	}	
 }
