@@ -227,7 +227,11 @@ class Chicken
 		this.y = this.y + this.yDir;
 		
 		this.isDone = (this.xDir == 0 && this.yDir == 0 && this.isHit);
-		if (!this.isDone && this.isHit) { this.score++; }
+		if (!this.isDone && this.isHit) 
+		{ 
+			var scoreIncrease = Math.sqrt(Math.pow(this.xDir, 2) + Math.pow(this.yDir, 2));
+			this.score = this.score + Math.ceil( scoreIncrease / 10 ); 
+		}
 	}
 	
 	draw()
