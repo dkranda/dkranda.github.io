@@ -214,10 +214,14 @@ class Chicken
 			this.yDir = -this.yDir;
 		}
 				
-		this.xDir = this.xDir - 0.2 * Math.sign(this.xDir);
-		if (Math.abs(this.xDir) < 0.03) { this.xDir = 0; }
-		this.yDir = this.yDir - 0.2 * Math.sign(this.yDir);
-		if (Math.abs(this.yDir) < 0.03) { this.yDir = 0; }
+		this.xDir = 0.99 * this.xDir;
+		this.yDir = 0.99 * this.yDir;
+		
+		if (Math.abs(this.xDir) < 0.1 && Math.abs(this.yDir) < 0.1) 
+		{
+			this.xDir = 0;
+			this.yDir = 0;
+		}
 
 		this.x = this.x + this.xDir;
 		this.y = this.y + this.yDir;
