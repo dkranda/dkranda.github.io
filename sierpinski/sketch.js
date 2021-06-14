@@ -7,7 +7,7 @@ var leftTop, leftBottom, rightTop, rightBottom;
 
 function setup()
 {
-  wt = 400, ht = 400;
+  wt = 800, ht = 800;
   createCanvas(wt, ht);
   background(200);
   translate(wt / 2, ht / 2);
