@@ -41,14 +41,17 @@ function draw()
   {
     return;
   }
-  drawNewestMiddlePoint();
-  addNextMiddlePoint();
+  for (var i = 0; i < 50; i++)
+  {
+    drawNewestMiddlePoint();
+    addNextMiddlePoint();
+  }
 }
 
 function drawNewestMiddlePoint()
 {
   var lastMiddlePoint = middlePoints[middlePoints.length - 1];
-  circle((numberOfPoints - 2) * lastMiddlePoint.x, (numberOfPoints - 2) * lastMiddlePoint.y, 1);
+  circle((numberOfPoints - 2) * lastMiddlePoint.x, (numberOfPoints - 2) * lastMiddlePoint.y, 0.1);
 }
 
 function addNextMiddlePoint()
